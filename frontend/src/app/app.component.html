@@ -1,0 +1,97 @@
+<router-outlet>
+  <div>
+    <app-navbar></app-navbar>
+  </div>
+  <div class="container">
+    <div class="card mt-5">
+      <div class="card-title text-center">
+        <h3 class="bg-info p-3 text-white">
+          Employee Data
+        </h3>
+      </div>
+      <div class="card-body">
+        <form class="form-group">
+          <input
+            class="form-control mt-2"
+            type="text"
+            placeholder="First Name"
+            name="first_name"
+            [(ngModel)]="selectedEmployee.first_name"
+          />
+          <input
+            class="form-control mt-2"
+            type="text"
+            placeholder="Last Name"
+            name="last_name"
+            [(ngModel)]="selectedEmployee.last_name"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            [(ngModel)]="selectedEmployee.email"
+            class="form-control mt-2"
+          />
+          <input
+            type="text"
+            placeholder="Avatar"
+            name="avatar"
+            [(ngModel)]="selectedEmployee.avatar"
+            class="form-control mt-2"
+          />
+          <button (click)="manageSubmit(selectedEmployee)" class="btn btn-primary btn-lg mt-2">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <div>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td class="text-center" style="width: 10%;">
+              <p>
+                {{ employee._id }}
+              </p>
+            </td>
+            <td class="text-center" style="width: 20%;">
+              <h5>{{ employee.first_name }}</h5>
+            </td>
+            <td class="text-center" style="width: 20%;">
+              <h5>{{ employee.last_name }}</h5>
+            </td>
+            <td class="text-center" style="width: 20%;">
+              <h5>{{ employee.email }}</h5>
+            </td>
+            <td class="text-center" style="width: 20%;">
+              <img
+                [src]="employee.avatar"
+                alt="image"
+                class="img-fluid img-thumbnail w-50 rounded-circle"
+              />
+            </td>
+            <td class="text-center" style="width: 5%;">
+              <button (click)="deleteEmployee(employee._id)" class="btn btn-danger">Delete</button>
+            </td>
+            <td class="text-center" style="width: 5%;">
+              <button (click)="editEmployee(employee)" class="btn btn-warning">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</router-outlet>
+
+<!-- https://img.timeinc.net/time/daily/2010/1011/poy_nomination_agassi.jpg -->
