@@ -23,7 +23,7 @@ Simple CRUD in **Angular**
 
 ## Screenshot
 
-![screenshot]()
+![screenshot](https://github.com/Ripper-No-Chart/Employees-List/blob/master/frontend/src/assets/print.png)
 
 ### Author
 
