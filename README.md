@@ -1,0 +1,30 @@
+# MEAN - Employees List
+
+Simple CRUD in **Angular**
+
+# Dependencies
+
+- Angular Cli
+- MongoDB
+- Express
+- Babel
+- NodeJS
+- Bootstrap
+
+## How to install?
+
+1) /server `npm install`
+2) /frontend `npm install`
+
+## To run
+
+1) Server: `npm start` on port 3000
+2) Front: `ng serve` on port 4200
+
+## Screenshot
+
+![screenshot]()
+
+### Author
+
+https://github.com/Ripper-No-Chart?tab=repositories
