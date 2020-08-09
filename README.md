@@ -1,10 +1,11 @@
 # MEAN - Employees List
 
-Simple CRUD in **Angular**
+Simple CRUD in **Angular** and **Typescript**
 
 # Dependencies
 
 - Angular Cli
+- Typescript
 - MongoDB
 - Express
 - Babel
