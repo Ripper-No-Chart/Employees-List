@@ -10,42 +10,85 @@
         </h3>
       </div>
       <div class="card-body">
-        <form class="form-group">
+        <form
+          [formGroup]="employeeForm"
+          (ngSubmit)="manageSubmit(employeeForm.value)"
+          class="form-group"
+        >
           <input
             class="form-control mt-2"
             type="text"
             placeholder="First Name"
             name="first_name"
-            [(ngModel)]="selectedEmployee.first_name"
+            formControlName="first_name"
           />
+          <span
+            *ngIf="
+              employeeForm.get('first_name').hasError('required') &&
+              employeeForm.get('first_name').touched
+            "
+            class="text-danger"
+          >
+            First Name required
+          </span>
           <input
             class="form-control mt-2"
             type="text"
             placeholder="Last Name"
             name="last_name"
-            [(ngModel)]="selectedEmployee.last_name"
+            formControlName="last_name"
           />
+          <span
+            *ngIf="
+              employeeForm.get('last_name').hasError('required') &&
+              employeeForm.get('last_name').touched
+            "
+            class="text-danger"
+          >
+            Last Name required
+          </span>
           <input
+            class="form-control mt-2"
             type="email"
             placeholder="Email"
             name="email"
-            [(ngModel)]="selectedEmployee.email"
-            class="form-control mt-2"
+            formControlName="email"
           />
+          <span
+            *ngIf="employeeForm.get('email').hasError('email') && employeeForm.get('email').touched"
+            class="text-danger"
+          >
+            Email required
+          </span>
           <input
+            class="form-control mt-2"
             type="text"
             placeholder="Avatar"
             name="avatar"
-            [(ngModel)]="selectedEmployee.avatar"
-            class="form-control mt-2"
+            formControlName="avatar"
           />
-          <button (click)="manageSubmit(selectedEmployee)" class="btn btn-primary btn-lg mt-2">
+          <span
+            *ngIf="
+              employeeForm.get('avatar').hasError('required') && employeeForm.get('avatar').touched
+            "
+            class="text-danger"
+          >
+            URL required
+          </span>
+          <button
+            [disabled]="employeeForm.invalid"
+            type="submit"
+            class="btn btn-primary btn-lg mt-2"
+          >
             Save
           </button>
         </form>
       </div>
     </div>
     <div>
+      <div class="text-right mt-4">
+        <p class="text-success">Employees: {{ employeesQuantity }}</p>
+      </div>
       <table class="table">
         <thead class="thead-dark">
           <tr class="text-center">
@@ -94,4 +137,4 @@
   </div>
 </router-outlet>
 
-<!-- https://img.timeinc.net/time/daily/2010/1011/poy_nomination_agassi.jpg -->
+<!--  -->
